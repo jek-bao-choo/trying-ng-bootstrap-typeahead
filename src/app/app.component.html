@@ -1,3 +1,13 @@
 <h1>
   {{title}}
 </h1>
+
+
+<div class="form-group" [class.has-danger]="searchFailed">
+  <input type="text" class="form-control" [(ngModel)]="model" [ngbTypeahead]="search" placeholder="Wikipedia search" />
+  <span *ngIf="searching">searching...</span>
+  <div class="form-control-feedback" *ngIf="searchFailed">Sorry, suggestions could not be loaded.</div>
+</div>
+
+<hr>
+<pre>Model: {{ model | json }}</pre>
